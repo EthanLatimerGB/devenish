@@ -28,3 +28,7 @@ build/
 
 *.releaseBackup
 release.properties
+
+# Developer Specific Files
+compile_commands.json
+.lock-waf_linux_build
