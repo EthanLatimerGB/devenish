@@ -29,11 +29,14 @@ static void h_window_load(Window *window)
 	Layer *window_layer = window_get_root_layer(window);
 	GRect bounds = layer_get_bounds(window_layer);
 
+	// Creating Layers
+	h_bl
+
 	// Creating TextLayers
 	h_time = text_layer_create(GRect(0, 0, bounds.size.w, 20));
-	h_lab_blood_sugar = text_layer_create(GRect(0, 20, bounds.size.w, 20));
-	h_lab_last_updated = text_layer_create(GRect(0, 40, bounds.size.w, 20));
-	h_lab_conn_status = text_layer_create(GRect(0, 60, bounds.size.w, 20));
+	h_lab_conn_status = text_layer_create(GRect(0, 20, bounds.size.w, 20));
+	h_lab_blood_sugar = text_layer_create(GRect(0, 40, bounds.size.w, 48));
+	h_lab_last_updated = text_layer_create(GRect(0, 88, bounds.size.w, 20));
 
 	// Setting Text
 	text_layer_set_text(h_time, "12:43");
@@ -41,8 +44,12 @@ static void h_window_load(Window *window)
 	text_layer_set_text(h_lab_last_updated, "2 minutes ago");
 	text_layer_set_text(h_lab_conn_status, "LIVE");
 
+	// Fonts
+	text_layer_set_font(h_lab_blood_sugar, fonts_get_system_font(FONT_KEY_LECO_42_NUMBERS));
+	text_layer_set_font(h_time, fonts_get_system_font(FONT_KEY_GOTHIC_14));
+
 	// Alignment
-	text_layer_set_text_alignment(h_lab_blood_sugar, GTextAlignmentCenter);
+	text_layer_set_text_alignment(h_time, GTextAlignmentCenter);
 
 	// Adding Children
 	layer_add_child(window_layer, text_layer_get_layer(h_time));
